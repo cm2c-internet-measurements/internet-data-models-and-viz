@@ -4,7 +4,7 @@ output_file: reporte-CC.pdf
 params:
   CC: MX
   CName: Mexico
-  RDate: 20170810
+  RDate: 20170816
 output:
   pdf_document:
     latex_engine: xelatex
@@ -35,11 +35,11 @@ Los datos presentados corresponden al **`r params$RDate`**.
 
 ## Breve descripción de la metodología de medición
 
-Los operadores de red o prestadores de servicios se identifican mediante sus números de sistema autónomo (ASN). Los números de ASN constituyen un identificador único de un operador en Internet. 
+Los operadores de red o prestadores de servicios se identifican mediante sus números de sistema autónomo (ASN). Los números de ASN constituyen un identificador único de un operador en Internet.
 
 Los datos presentados aquí son relevados por un sistema de mediciones elaborado por investigadores de APNIC (El RIR de la región de Asia-Pacífico). El mecanismo de la medición consiste en presentar a los usuarios contenido web con algunos elementos alcanzables únicamente por IPv6, otros alcanzables por ambos protocolos y otros solo por IPv4. De esta manera es posible clasificar la capacidad de utilizar IPv6 por parte de un usuario en dos grandes conjuntos:
 
--	“IPv6 Capable”: el usuario tiene la posibilidad de utilizar IPv6 para alcanzar ciertos contenidos 
+-	“IPv6 Capable”: el usuario tiene la posibilidad de utilizar IPv6 para alcanzar ciertos contenidos
 -	“IPv6 Preferred”: el usuario no solo tiene la posibilidad de utilizar IPv6 sino que en caso de poder usar tanto IPv4 como IPv6, **prefiere IPv6**
 
 Idealmente todos los usuarios deberían caer en este último conjunto. Sin embargo, por diferentes motivos existen casos donde los usuarios pueden utilizar IPv6 pero no lo prefieren.
@@ -114,7 +114,7 @@ for (i in top10$ASN) {
   cat('\n')
   cat(paste('- Máximo de actividad IPv6 ultimos 360 dias:',st360$max,'%'))
   cat('\n')
-  
+
   # plot(tail(v6cap$percentagev6capable,360),  col='blue', type="l", ylab="v6cap")
   plot(sqldf("select date(timestamp) as t, percentagev6capable as v from v6cap where date(timestamp)>date('now','-360 days')")$v,  col='blue', type="l", ylab="v6cap")
   cat('\n')
@@ -125,6 +125,3 @@ for (i in top10$ASN) {
 }
 
 ```
-
-
-
