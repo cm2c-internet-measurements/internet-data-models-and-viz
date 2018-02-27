@@ -27,7 +27,7 @@ tsFromMongoDate <- function(x) {
 
 getCleanIPv4Data <- function() {
   ## TODO: get lastday offset automatically, not in a fixed way
-  d <- fromJSON("http://opendata.labs.lacnic.net/ipv4stats/ipv4avail/lacnic?lastdays=320")
+  d <- fromJSON("http://opendata.labs.lacnic.net/ipv4stats/ipv4avail/lacnic?lastdays=328")
   # d <- fromJSON("freeipv4_lacnic.json")
   e <- unlist(d[1], use.names=FALSE, recursive=FALSE)
   f <- t(data.frame(e))
