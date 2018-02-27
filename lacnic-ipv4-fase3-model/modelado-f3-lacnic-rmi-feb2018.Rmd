@@ -64,6 +64,8 @@ _Dadas las políticas vigentes de asignación de IPv4 en la región de LACNIC, �
 - Modelo: tratar de obtener *una expresión para la función que buscamos*
 - Técnica más común: *Regresión por mínimos cuadrados* 
 
+![Mínimos cuadrados](linreg.svg)
+
 ## Relevant Policies and Data Sources Used
 
 Phase 3 of IPv4 Runout began on February 15, 2017. Please see <http://www.lacnic.net/agotamiento>.
