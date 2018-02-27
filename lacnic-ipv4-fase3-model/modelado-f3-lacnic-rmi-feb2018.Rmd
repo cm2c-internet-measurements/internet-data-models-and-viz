@@ -3,8 +3,8 @@ title: "Modelado de la fase 3 - IPv4"
 author: "Carlos M. Martinez"
 date: "2/26/2018"
 output:
-  ioslides_presentation: default
   beamer_presentation: default
+  ioslides_presentation: default
 ---
 
 ```{r setup, include=FALSE}
@@ -64,7 +64,7 @@ _Dadas las políticas vigentes de asignación de IPv4 en la región de LACNIC, �
 - Modelo: tratar de obtener *una expresión para la función que buscamos*
 - Técnica más común: *Regresión por mínimos cuadrados* 
 
-![Mínimos cuadrados](linreg.svg)
+![Mínimos cuadrados](linreg.png)
 
 ## Relevant Policies and Data Sources Used
 
