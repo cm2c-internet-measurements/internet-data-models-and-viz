@@ -3,8 +3,8 @@ title: "Modelado de la fase 3 - IPv4"
 author: "Carlos M. Martinez"
 date: "2/26/2018"
 output:
-  beamer_presentation: default
   ioslides_presentation: default
+  beamer_presentation: default
 ---
 
 ```{r setup, include=FALSE}
