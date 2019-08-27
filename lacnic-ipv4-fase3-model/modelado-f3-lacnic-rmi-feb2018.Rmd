@@ -5,6 +5,7 @@ date: "2/26/2018"
 output:
   ioslides_presentation: default
   beamer_presentation: default
+  slidy_presentation: default
 ---
 
 ```{r setup, include=FALSE}
@@ -75,7 +76,7 @@ Phase 3 of IPv4 Runout began on February 15, 2017. Please see <http://www.lacnic
 
 ## Best Current Model
 
-The current-best model is a _linear model_ (polynomial, degree=1)
+The current-best model is a _quadratic model_ (polynomial, degree=2)
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 source("freeipv4_model_f3.R")
@@ -83,10 +84,11 @@ source("freeipv4_model_f3.R")
 
 ## Phase 3 End Date - Current Prediction
 
+According to the model described above, this is the most probable Phase 3 runout date:
+
 ```{r, echo=FALSE}
 print(cutoff_date)
 ```
-
 
 ## DEMO
 

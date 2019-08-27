@@ -89,10 +89,12 @@ plotFase3 <- function(Grado) {
   text(cutoff_ts, 300000, labels=c(cutoff_date))
   
   #print(summary(m5))
+  
+  return(cutoff_date)
 } # end function plotFase3
 
-plotFase3(1)
-plotFase3(2)
-plotFase3(3)
+cutoff_date = plotFase3(2)
+# plotFase3(2)
+# plotFase3(3)
 
 ## end
