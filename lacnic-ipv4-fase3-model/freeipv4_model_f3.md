@@ -25,7 +25,7 @@ tsFromMongoDate <- function(x) {
 # Getting and cleaning data
 # setwd("~/scratch")
 
-getCleanIPv4Data <- function(EspacioReservado) {
+getCleanIPv4Data <- function() {
   ## TODO: get lastday offset automatically, not in a fixed way
   d <- fromJSON("http://opendata.labs.lacnic.net/ipv4stats/ipv4avail/lacnic?lastdays=365")
   # d <- fromJSON("freeipv4_lacnic.json")
@@ -37,7 +37,7 @@ getCleanIPv4Data <- function(EspacioReservado) {
   
   free4 = t ( as.matrix( as.data.frame(free4)))
   free4 = as.numeric(free4[,1])
-  free4 = free4 + EspacioReservado 
+  free4 = free4 + 1106432 ## TODO: fetch reserved ipv4 automatically
   
   dates_free4 = t ( as.matrix( as.data.frame(dates_free4)))
   dates_free4 = as.numeric(dates_free4[,1])
@@ -50,9 +50,9 @@ getCleanIPv4Data <- function(EspacioReservado) {
   return(ipv4)
 }
 
-plotFase3 <- function(Grado, EspacioReservado) {
+plotFase3 <- function(Grado) {
 
-  ipv4 <- getCleanIPv4Data(EspacioReservado)
+  ipv4 <- getCleanIPv4Data()
   
   ## Modeling and prediction
   # m5 = lm(free4 ~ dates_free4, data = ipv4)
@@ -93,9 +93,7 @@ plotFase3 <- function(Grado, EspacioReservado) {
   return(cutoff_date)
 } # end function plotFase3
 
-EspacioReservado = 1334016
-
-# cutoff_date = plotFase3(2)
+cutoff_date = plotFase3(2)
 # plotFase3(2)
 # plotFase3(3)
 

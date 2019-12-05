@@ -1,7 +1,7 @@
 LACNIC IPv4 Phase 3 Report
 ========================================================
 author: Carlos Martinez
-date: February 21st, 2018
+date: December 5, 2019
 autosize: true
 
 Relevant Policies and Data Sources Used 
@@ -10,18 +10,50 @@ Relevant Policies and Data Sources Used
 Phase 3 of IPv4 Runout began on February 15, 2017. Please see <http://www.lacnic.net/agotamiento>.
 
 - The "Available IPv4 in LACNIC" dataset can be found at <http://opendata.labs.lacnic.net/ipv4stats/ipv4avail/lacnic?lastdays=320>.
-- Reserved IPv4 space stands at 908800 IPv4 addresses as of today
-
-Current Model (Deg. 1 Polynomial)
-========================================================
-
-```{r, echo=FALSE, message=FALSE, warning=FALSE}
+- Reserved and availbe IPv4 space: 
+```{r, echo=FALSE}
 source("freeipv4_model_f3.R")
+print(EspacioReservado)
 ```
 
-Predicted Phase 3 End Date
+
+Predicted Phase 3 End Date (Deg. 1)
 ========================================================
 
 ```{r, echo=FALSE}
-print(cutoff_date)
+cd_g1 = plotFase3(1, EspacioReservado)
 ```
+
+Predicted Phase 3 End Date (Deg. 2)
+========================================================
+
+```{r, echo=FALSE}
+cd_g2 = plotFase3(2, EspacioReservado)
+```
+
+Predicted Phase 3 End Date (Deg. 3)
+========================================================
+
+```{r, echo=FALSE}
+cd_g3 = plotFase3(3, EspacioReservado)
+```
+
+Predicted Cutoff Dates
+========================================================
+
+- Degree 1:
+```{r, echo=FALSE} 
+print(cd_g1)
+```
+
+- Degree 2:
+```{r, echo=FALSE} 
+print(cd_g2)
+```
+
+- Degree 3:
+```{r, echo=FALSE} 
+print(cd_g3)
+```
+
+
