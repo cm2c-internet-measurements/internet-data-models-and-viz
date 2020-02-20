@@ -35,22 +35,27 @@ print(FechaDeGeneracion)
 print(EspacioReservado)
 ```
 
+## Predicciones de agotamiento
+
+- Se realizan tres ajustes por mínimos cuadrados (grados 1, 2 y 3)
+- _Observación: los modelos de grado mayor a uno pueden no converger_
+
 ## Modelo de grado 1
 
 ```{r, echo=FALSE}
-cd_g1 = plotFase3(1, EspacioReservado)
+cd_g1 = plotFase3(1, EspacioReservado, 365*1.12)
 ```
 
 ## Modelo de grado 2
 
 ```{r, echo=FALSE}
-cd_g2 = plotFase3(2, EspacioReservado)
+cd_g2 = plotFase3(2, EspacioReservado, 365*1.12)
 ```
 
 ## Modelo de grado 3
 
 ```{r, echo=FALSE}
-cd_g3 = plotFase3(3, EspacioReservado)
+cd_g3 = plotFase3(3, EspacioReservado, 365*1.12)
 ```
 
 

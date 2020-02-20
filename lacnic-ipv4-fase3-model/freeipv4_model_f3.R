@@ -50,7 +50,7 @@ getCleanIPv4Data <- function(EspacioReservado) {
   return(ipv4)
 }
 
-plotFase3 <- function(Grado, EspacioReservado) {
+plotFase3 <- function(Grado, EspacioReservado, wFutureHorizon) {
 
   ipv4 <- getCleanIPv4Data(EspacioReservado)
   
@@ -65,7 +65,8 @@ plotFase3 <- function(Grado, EspacioReservado) {
   
   # Forecasting ----------------------------------------------------
   secsday = 86400
-  future_horizon_days = 365*2.3
+  # future_horizon_days = 365*2.3
+  future_horizon_days = wFutureHorizon*1.1
   future_dates_free4 = seq(ipv4$dates_free4[1], ipv4$dates_free4[1]+secsday*future_horizon_days, secsday)
   future_free4 = predict(m5, newdata = data.frame(dates_free4=future_dates_free4))
   fcast = as.data.frame( cbind(future_dates_free4, future_free4))
