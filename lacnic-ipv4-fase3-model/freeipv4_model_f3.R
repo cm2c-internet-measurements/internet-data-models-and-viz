@@ -93,7 +93,11 @@ plotFase3 <- function(Grado, EspacioReservado) {
   return(cutoff_date)
 } # end function plotFase3
 
+# definicion del espacio reservado (un /15)
 EspacioReservado = 1334016
+
+# Fecha de generacion
+FechaDeGeneracion = format(Sys.time(), "%a %b %d %X %Y")
 
 # cutoff_date = plotFase3(2)
 # plotFase3(2)

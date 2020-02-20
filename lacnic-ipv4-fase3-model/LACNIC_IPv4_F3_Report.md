@@ -13,7 +13,7 @@ Phase 3 of IPv4 Runout began on February 15, 2017. Please see <http://www.lacnic
 - Reserved and availbe IPv4 space: 
 
 ```
-[1] 1543680
+[1] 1334016
 ```
 
 
@@ -38,13 +38,13 @@ Predicted Cutoff Dates
 - Degree 1:
 
 ```
-[1] "2021-01-28"
+[1] "2020-12-30"
 ```
 
 - Degree 2:
 
 ```
-[1] "2020-09-20"
+[1] NA
 ```
 
 - Degree 3:

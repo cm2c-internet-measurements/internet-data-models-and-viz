@@ -2,14 +2,26 @@
 title: "Reporte de fase 3 de agotamiento IPv4"
 author: "I+D LACNIC"
 output:
-  ioslides_presentation: default
+  powerpoint_presentation: 
+    toc: yes
   beamer_presentation: default
   slidy_presentation: default
+  ioslides_presentation: default
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
+
+## Fecha de generación del reporte
+
+- Fecha de generación de este reporte:
+
+```{r, echo=FALSE}
+source("freeipv4_model_f3.R")
+print(FechaDeGeneracion)
+```
+
 
 ## Políticas aplicables y fuentes de datos utilizadas
 
@@ -17,9 +29,8 @@ knitr::opts_chunk$set(echo = FALSE)
 
 - El dataset "IPv4 disponible en LACNIC" se puede descargar de: <http://opendata.labs.lacnic.net/ipv4stats/ipv4avail/lacnic?lastdays=365>.
 
-- Al espacio IPv4 dispoonible se le debe adicionar el recuperado menos el equivalente de un /15 (Reserva de infraestructura crítica):
+- Al espacio IPv4 disponible se le debe adicionar el recuperado menos el equivalente de un /15 (Reserva de infraestructura crítica):
 ```{r, echo=FALSE}
-source("freeipv4_model_f3.R")
 print(EspacioReservado)
 ```
 
