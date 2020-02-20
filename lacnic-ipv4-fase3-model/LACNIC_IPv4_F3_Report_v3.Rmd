@@ -4,6 +4,7 @@ author: "I+D LACNIC"
 output:
   powerpoint_presentation: 
     toc: yes
+    reference_doc: template_v3.pptx
   beamer_presentation: default
   slidy_presentation: default
   ioslides_presentation: default
