@@ -21,21 +21,21 @@ Predicted Phase 3 End Date (Deg. 1)
 ========================================================
 
 ```{r, echo=FALSE}
-cd_g1 = plotFase3(1, EspacioReservado)
+cd_g1 = plotFase3(1, EspacioReservado, 365*1.1)
 ```
 
 Predicted Phase 3 End Date (Deg. 2)
 ========================================================
 
 ```{r, echo=FALSE}
-cd_g2 = plotFase3(2, EspacioReservado)
+cd_g2 = plotFase3(2, EspacioReservado, 365*1.1)
 ```
 
 Predicted Phase 3 End Date (Deg. 3)
 ========================================================
 
 ```{r, echo=FALSE}
-cd_g3 = plotFase3(3, EspacioReservado)
+cd_g3 = plotFase3(3, EspacioReservado, 365*1.1)
 ```
 
 Predicted Cutoff Dates

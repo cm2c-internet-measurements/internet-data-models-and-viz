@@ -1,5 +1,6 @@
 # IPv4 Runout Phase 3 Modeling: carlos@lacnic.net
 # v1: 2018-02-15 @Brisbane
+# v3: 2020-02-20 @Montevideo
 
 # dependencies
 # install.packages("jsonlite")
@@ -49,6 +50,11 @@ getCleanIPv4Data <- function(EspacioReservado) {
   
   return(ipv4)
 }
+
+# plotFase3 argumentos:
+# Grado : grado del polinomio
+# EspacioReservado: cantidad de direcciones IPv4 reservadas
+# wFutureHorizon : cantidad de dias en el futuro para buscar el cero de la regresión
 
 plotFase3 <- function(Grado, EspacioReservado, wFutureHorizon) {
 
