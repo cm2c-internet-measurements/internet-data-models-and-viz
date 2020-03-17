@@ -51,14 +51,30 @@ getCleanIPv4Data <- function(EspacioReservado) {
   return(ipv4)
 }
 
+# ----------------------------------------
+smoothIPv4Series <- function(wipv4) {
+  
+  # wipv4.lowess = smoothLowess(wipv4, f=0.1)
+  
+  wipv4.smooth = lowess(wipv4)
+  
+  return (wipv4.smooth)
+  
+}
+# ----------------------------------------
+
 # plotFase3 argumentos:
 # Grado : grado del polinomio
 # EspacioReservado: cantidad de direcciones IPv4 reservadas
 # wFutureHorizon : cantidad de dias en el futuro para buscar el cero de la regresión
+# wipv4 : data frame con dates_free4 y free4
 
-plotFase3 <- function(Grado, EspacioReservado, wFutureHorizon) {
+plotFase3 <- function(wipv4, Grado, EspacioReservado, wFutureHorizon) {
 
-  ipv4 <- getCleanIPv4Data(EspacioReservado)
+  # ipv4.raw <- getCleanIPv4Data(EspacioReservado)
+  
+  # ipv4 <- smoothIPv4Series(ipv4.raw)
+  ipv4 <- wipv4
   
   ## Modeling and prediction
   # m5 = lm(free4 ~ dates_free4, data = ipv4)
@@ -99,14 +115,22 @@ plotFase3 <- function(Grado, EspacioReservado, wFutureHorizon) {
   
   return(cutoff_date)
 } # end function plotFase3
+# ------------------------------------------------------------------------
 
 # definicion del espacio reservado (un /15)
 EspacioReservado = 1334016
 
+ipv4.raw <-  getCleanIPv4Data(EspacioReservado)
+ipv4.smooth <- as.data.frame(  smoothIPv4Series( ipv4.raw  ) )
+
+ipv4.smooth2 <- data.frame(dates_free4=as.array(ipv4.smooth$x), free4=as.array(ipv4.smooth$y))
+# ipv4.smooth2$dates_free4 = as.array(ipv4.smooth$x)
+
 # Fecha de generacion
 FechaDeGeneracion = format(Sys.time(), "%a %b %d %X %Y")
 
-# cutoff_date = plotFase3(2)
+cutoff_date = plotFase3(ipv4.raw, 1, EspacioReservado, 365*1.12)
+cutoff_date2 = plotFase3(ipv4.smooth2, 1, EspacioReservado, 365*2)
 # plotFase3(2)
 # plotFase3(3)
 

@@ -100,6 +100,21 @@
 \begin{document}
 \frame{\titlepage}
 
+\begin{frame}[fragile]{Fecha de generación del reporte}
+\protect\hypertarget{fecha-de-generaciuxf3n-del-reporte}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Fecha de generación de este reporte:
+\end{itemize}
+
+\begin{verbatim}
+## [1] "Wed Mar 04 17:22:54 2020"
+\end{verbatim}
+
+\end{frame}
+
 \begin{frame}[fragile]{Políticas aplicables y fuentes de datos
 utilizadas}
 \protect\hypertarget{poluxedticas-aplicables-y-fuentes-de-datos-utilizadas}{}
@@ -113,7 +128,8 @@ utilizadas}
   El dataset ``IPv4 disponible en LACNIC'' se puede descargar de:
   \url{http://opendata.labs.lacnic.net/ipv4stats/ipv4avail/lacnic?lastdays=365}.
 \item
-  Al espacio IPv4 dispoonible se le debe adicionar el recuperado:
+  Al espacio IPv4 disponible se le debe adicionar el recuperado menos el
+  equivalente de un /15 (Reserva de infraestructura crítica):
 \end{itemize}
 
 \begin{verbatim}
@@ -122,24 +138,38 @@ utilizadas}
 
 \end{frame}
 
+\begin{frame}{Predicciones de agotamiento}
+\protect\hypertarget{predicciones-de-agotamiento}{}
+
+\begin{itemize}
+\tightlist
+\item
+  Se realizan tres ajustes por mínimos cuadrados (grados 1, 2 y 3)
+\item
+  \emph{Observación: los modelos de grado mayor a uno pueden no
+  converger}
+\end{itemize}
+
+\end{frame}
+
 \begin{frame}{Modelo de grado 1}
 \protect\hypertarget{modelo-de-grado-1}{}
 
-\includegraphics{LACNIC_IPv4_F3_Report_v3_files/figure-beamer/unnamed-chunk-2-1.pdf}
+\includegraphics{LACNIC_IPv4_F3_Report_v3_files/figure-beamer/unnamed-chunk-3-1.pdf}
 
 \end{frame}
 
 \begin{frame}{Modelo de grado 2}
 \protect\hypertarget{modelo-de-grado-2}{}
 
-\includegraphics{LACNIC_IPv4_F3_Report_v3_files/figure-beamer/unnamed-chunk-3-1.pdf}
+\includegraphics{LACNIC_IPv4_F3_Report_v3_files/figure-beamer/unnamed-chunk-4-1.pdf}
 
 \end{frame}
 
 \begin{frame}{Modelo de grado 3}
 \protect\hypertarget{modelo-de-grado-3}{}
 
-\includegraphics{LACNIC_IPv4_F3_Report_v3_files/figure-beamer/unnamed-chunk-4-1.pdf}
+\includegraphics{LACNIC_IPv4_F3_Report_v3_files/figure-beamer/unnamed-chunk-5-1.pdf}
 
 \end{frame}
 
@@ -156,7 +186,7 @@ modelos es:
 \end{itemize}
 
 \begin{verbatim}
-## [1] "2020-12-07"
+## [1] "2021-01-16"
 \end{verbatim}
 
 \begin{itemize}
@@ -166,7 +196,7 @@ modelos es:
 \end{itemize}
 
 \begin{verbatim}
-## [1] "2020-08-17"
+## [1] NA
 \end{verbatim}
 
 \begin{itemize}
