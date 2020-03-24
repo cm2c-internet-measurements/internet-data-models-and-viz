@@ -1,6 +1,7 @@
 # IPv4 Runout Phase 3 Modeling: carlos@lacnic.net
 # v1: 2018-02-15 @Brisbane
 # v3: 2020-02-20 @Montevideo
+# v4: 2020-03-22 @Montevideo en cuarentena
 
 # dependencies
 # install.packages("jsonlite")
@@ -117,8 +118,31 @@ plotFase3 <- function(wipv4, Grado, EspacioReservado, wFutureHorizon) {
 } # end function plotFase3
 # ------------------------------------------------------------------------
 
+# ------------------------------------------------------------------------
+# devuelve el espacio libre ipv4 pero tomado de netdata
+ipv4_from_netdata <- function() {
+  # testing new ipv4 dataset
+  
+  ipv4data = read.csv2("http://trantor.labs.lacnic.net/carlos/ipv4avail_lacnic.csv", sep='|')
+  
+  
+  ipv4data <- cbind(ipv4data, nro=seq(1,318))
+  
+  ipv4data <- cbind(ipv4data, assignable=ipv4data$available+ipv4data$reserved)
+  
+  # as.numeric(as.POSIXct("2013-09-06", format="%Y-%m-%d"))
+  
+  ipv4.raw = data.frame(
+    dates_free4 =  as.numeric(as.POSIXct(as.character(ipv4data$date), format="%Y%m%d", origin="19700101") ), 
+    free4 = ipv4data$assignable
+  )
+  
+  return(ipv4.raw)
+}
+# ------------------------------------------------------------------------
+
 # definicion del espacio reservado (un /15)
-EspacioReservado = 1334016
+EspacioReservado = 406016-65536*2
 
 ipv4.raw <-  getCleanIPv4Data(EspacioReservado)
 ipv4.smooth <- as.data.frame(  smoothIPv4Series( ipv4.raw  ) )
@@ -129,8 +153,9 @@ ipv4.smooth2 <- data.frame(dates_free4=as.array(ipv4.smooth$x), free4=as.array(i
 # Fecha de generacion
 FechaDeGeneracion = format(Sys.time(), "%a %b %d %X %Y")
 
-cutoff_date_rate = plotFase3(ipv4.raw, 1, EspacioReservado, 365*1.12)
-cutoff_date_smooth = plotFase3(ipv4.smooth2, 1, EspacioReservado, 365*2)
+#cutoff_date = plotFase3(ipv4.raw, 1, EspacioReservado, 365*1.12)
+#cutoff_date2 = plotFase3(ipv4.smooth2, 1, EspacioReservado, 365*2)
+#cutoff_date3 = plotFase3(ipv4_from_netdata(), 3, 2*65536, 365*2.5)
 # plotFase3(2)
 # plotFase3(3)
 

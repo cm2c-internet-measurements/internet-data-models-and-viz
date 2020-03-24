@@ -2,12 +2,12 @@
 title: "Reporte de fase 3 de agotamiento IPv4"
 author: "I+D LACNIC"
 output:
-  beamer_presentation: default
-  ioslides_presentation: default
-  slidy_presentation: default
   powerpoint_presentation: 
     toc: yes
     reference_doc: template_v3.pptx
+  beamer_presentation: default
+  slidy_presentation: default
+  ioslides_presentation: default
 ---
 
 ```{r setup, include=FALSE}
@@ -43,19 +43,19 @@ print(EspacioReservado)
 ## Modelo de grado 1
 
 ```{r, echo=FALSE}
-cd_g1 = plotFase3(1, EspacioReservado, 365*1.12)
+cd_g1 = plotFase3(ipv4_from_netdata(), 1, 2*65536, 365*2.5)
 ```
 
 ## Modelo de grado 2
 
 ```{r, echo=FALSE}
-cd_g2 = plotFase3(2, EspacioReservado, 365*1.12)
+cd_g2 = plotFase3(ipv4_from_netdata(), 2, 2*65536, 365*2.5)
 ```
 
 ## Modelo de grado 3
 
 ```{r, echo=FALSE}
-cd_g3 = plotFase3(3, EspacioReservado, 365*1.12)
+cd_g3 = plotFase3(ipv4_from_netdata(), 3, 2*65536, 365*2.5)
 ```
 
 
