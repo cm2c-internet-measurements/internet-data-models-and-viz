@@ -129,8 +129,8 @@ ipv4.smooth2 <- data.frame(dates_free4=as.array(ipv4.smooth$x), free4=as.array(i
 # Fecha de generacion
 FechaDeGeneracion = format(Sys.time(), "%a %b %d %X %Y")
 
-cutoff_date = plotFase3(ipv4.raw, 1, EspacioReservado, 365*1.12)
-cutoff_date2 = plotFase3(ipv4.smooth2, 1, EspacioReservado, 365*2)
+cutoff_date_rate = plotFase3(ipv4.raw, 1, EspacioReservado, 365*1.12)
+cutoff_date_smooth = plotFase3(ipv4.smooth2, 1, EspacioReservado, 365*2)
 # plotFase3(2)
 # plotFase3(3)
 
