@@ -123,10 +123,10 @@ plotFase3 <- function(wipv4, Grado, EspacioReservado, wFutureHorizon) {
 ipv4_from_netdata <- function() {
   # testing new ipv4 dataset
   
-  ipv4data = read.csv2("http://trantor.labs.lacnic.net/carlos/ipv4avail_lacnic.csv", sep='|')
+  ipv4data = read.csv2("http://trantor.labs.lacnic.net/carlos/ipv4avail_lacnic_latest.csv", sep='|')
   
   
-  ipv4data <- cbind(ipv4data, nro=seq(1,318))
+  ipv4data <- cbind(ipv4data, nro=seq(1,324))
   
   ipv4data <- cbind(ipv4data, assignable=ipv4data$available+ipv4data$reserved)
   
@@ -155,7 +155,7 @@ FechaDeGeneracion = format(Sys.time(), "%a %b %d %X %Y")
 
 #cutoff_date = plotFase3(ipv4.raw, 1, EspacioReservado, 365*1.12)
 #cutoff_date2 = plotFase3(ipv4.smooth2, 1, EspacioReservado, 365*2)
-#cutoff_date3 = plotFase3(ipv4_from_netdata(), 3, 2*65536, 365*2.5)
+cutoff_date3 = plotFase3(ipv4_from_netdata(), 3, 2*65536, 365*2.5)
 # plotFase3(2)
 # plotFase3(3)
 
