@@ -2,12 +2,12 @@
 title: "Reporte de fase 3 de agotamiento IPv4"
 author: "I+D LACNIC"
 output:
-  beamer_presentation: default
+  ioslides_presentation: default
   powerpoint_presentation: 
     toc: yes
     reference_doc: template_v3.pptx
   slidy_presentation: default
-  ioslides_presentation: default
+  beamer_presentation: default
 ---
 
 ```{r setup, include=FALSE}
