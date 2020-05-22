@@ -123,10 +123,10 @@ plotFase3 <- function(wipv4, Grado, EspacioReservado, wFutureHorizon) {
 ipv4_from_netdata <- function() {
   # testing new ipv4 dataset
   
-  ipv4data = read.csv2("http://trantor.labs.lacnic.net/carlos/ipv4avail_lacnic.csv", sep='|')
+  ipv4data = read.csv2("http://trantor.labs.lacnic.net/carlos/ipv4avail_lacnic_latest.csv", sep='|')
   
   
-  ipv4data <- cbind(ipv4data, nro=seq(1,318))
+  ipv4data <- cbind(ipv4data, nro = seq(1, length(ipv4data[1])) )
   
   ipv4data <- cbind(ipv4data, assignable=ipv4data$available+ipv4data$reserved)
   
