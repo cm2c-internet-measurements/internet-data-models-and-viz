@@ -1,0 +1,81 @@
+---
+title: "Reporte de fase 3 de agotamiento IPv4"
+author: "I+D LACNIC"
+date: "2020-06-08"
+output:
+  ioslides_presentation: default
+  powerpoint_presentation: 
+    toc: yes
+    reference_doc: template_v3.pptx
+  slidy_presentation: default
+  beamer_presentation: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Fecha de generación del reporte
+
+- Fecha de generación de este reporte:
+
+```{r, echo=FALSE}
+source("freeipv4_model_f3.R")
+print(FechaDeGeneracion)
+```
+
+
+## Políticas aplicables y fuentes de datos utilizadas
+
+- La fase 3 del agotamiento de IPv4 comenzó oficialmente el 15 de febrero de 2017. Información detallada sobre este proceso se puede encontrar en <http://www.lacnic.net/agotamiento>.
+
+- El dataset "IPv4 disponible en LACNIC" se puede descargar de: <http://opendata.labs.lacnic.net/ipv4stats/ipv4avail/lacnic?lastdays=365>.
+
+- Al espacio IPv4 disponible se le debe adicionar el recuperado menos el equivalente de un /15 (Reserva de infraestructura crítica):
+```{r, echo=FALSE}
+print(EspacioReservado)
+```
+
+## Predicciones de agotamiento
+
+- Se realizan tres ajustes por mínimos cuadrados (grados 1, 2 y 3)
+- _Observación: los modelos de grado 2 y 3 pueden no converger, es decir no llegar a mostrar un cruce con cero_
+
+## Modelo de grado 1
+
+```{r, echo=FALSE}
+cd_g1 = plotFase3(ipv4_from_netdata(), 1, 2*65536, 365*2.5)
+```
+
+## Modelo de grado 2
+
+```{r, echo=FALSE}
+cd_g2 = plotFase3(ipv4_from_netdata(), 2, 2*65536, 365*2.5)
+```
+
+## Modelo de grado 3
+
+```{r, echo=FALSE}
+cd_g3 = plotFase3(ipv4_from_netdata(), 3, 2*65536, 365*2.5)
+```
+
+
+## Fechas de agotamiento
+
+La predicción de fechas de agotamiento de acuerdo a los diferentes modelos es:
+
+- Grado 1:
+```{r, echo=FALSE} 
+print(cd_g1)
+```
+
+- Grado 2:
+```{r, echo=FALSE} 
+print(cd_g2)
+```
+
+- Grado 3:
+```{r, echo=FALSE} 
+print(cd_g3)
+```
+
