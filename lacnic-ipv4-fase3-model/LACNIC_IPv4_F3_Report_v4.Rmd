@@ -1,6 +1,7 @@
 ---
 title: "Reporte de fase 3 de agotamiento IPv4"
 author: "I+D LACNIC"
+date: "2020-06-08"
 output:
   powerpoint_presentation: 
     toc: yes
@@ -38,7 +39,7 @@ print(EspacioReservado)
 ## Predicciones de agotamiento
 
 - Se realizan tres ajustes por mínimos cuadrados (grados 1, 2 y 3)
-- _Observación: los modelos de grado mayor a uno pueden no converger_
+- _Observación: los modelos de grado 2 y 3 pueden no converger, es decir no llegar a mostrar un cruce con cero_
 
 ## Modelo de grado 1
 
